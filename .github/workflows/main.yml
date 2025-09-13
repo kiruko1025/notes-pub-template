@@ -33,20 +33,22 @@ jobs:
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements*.txt') }}
           restore-keys: ${{ runner.os }}-pip-
 
-      - name: Install Python deps (MkDocs)
+      - name: Install MkDocs + theme(s)
         run: |
           python -m pip install --upgrade pip
-          pip install mkdocs mkdocs-material
+          pip install mkdocs mkdocs-material mkdocs-rtd-dropdown
 
-      - name: Install Pandoc + LaTeX (for PDF)
+      - name: Install Pandoc + Tectonic (PDF engine)
         run: |
           sudo apt-get update
-          sudo apt-get install -y pandoc \
-            texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended
+          sudo apt-get install -y pandoc tectonic
 
       - name: Build HTML + PDF
         run: |
-          make all
+          # HTML (uses the theme configured in mkdocs.yml)
+          mkdocs build --clean
+          # PDF via Pandoc + Tectonic
+          make pdf PDFENG=tectonic
           # Ensure the PDF sits in 'out/' so it gets published
           test -f out/documentation.pdf
 
