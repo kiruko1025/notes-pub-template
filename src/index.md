@@ -1,3 +1,3 @@
-# Title
+# Index
 
 This is the introduction.

@@ -4,10 +4,11 @@ OUT_DIR := out
 TOC     := toc.txt
 PDF     := $(OUT_DIR)/documentation.pdf
 
+
 # ---- commands (override if you need) ----
 MKDOCS  := mkdocs
 PANDOC  := pandoc
-PDFENG  := xelatex
+PDFENG  ?= xelatex
 
 # ---- phony ----
 .PHONY: all html pdf serve clean deploy

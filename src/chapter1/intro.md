@@ -2,6 +2,6 @@
 title: Introduction
 ---
 
-# Example
+# Intro
 
 example
