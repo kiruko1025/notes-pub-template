@@ -1,0 +1,14 @@
+site_name: notes
+docs_dir: src
+site_dir: out
+
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - Chapter 1:
+      - Intro: chapter1/intro.md
+      - Lesson 1: chapter1/lesson1.md
+  - Chapter 2:
+      - Overview: chapter2/overview.md
