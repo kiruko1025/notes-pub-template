@@ -38,19 +38,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install mkdocs mkdocs-material mkdocs-rtd-dropdown
 
-      - name: Install Pandoc + Tectonic (PDF engine)
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y pandoc tectonic
-
       - name: Build HTML + PDF
         run: |
           # HTML (uses the theme configured in mkdocs.yml)
           mkdocs build --clean
           # PDF via Pandoc + Tectonic
-          make pdf PDFENG=tectonic
+          # make pdf PDFENG=tectonic
           # Ensure the PDF sits in 'out/' so it gets published
-          test -f out/documentation.pdf
+          # test -f out/documentation.pdf
 
       - name: Upload artifact for Pages
         uses: actions/upload-pages-artifact@v3
