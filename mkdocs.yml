@@ -3,8 +3,7 @@ docs_dir: src
 site_dir: out
 
 theme:
-  theme:
-  name: readthedocs
+  name: material
   collapse_navigation: true   # enable collapsing
   navigation_depth: 3       # show nested levels (must be >1)
   sticky_navigation: true   
@@ -12,6 +11,21 @@ theme:
   hljs_languages:
     - yaml
     - rust
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - tables: {}
+  - extra: {}
+  - def_list: {}
+  - toc:
+      permalink: ""
+      separator: "_"
+  - admonition: {}
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 
 nav:
   - Chapter 1:
